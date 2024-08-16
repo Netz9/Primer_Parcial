@@ -64,3 +64,115 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+
+
+Consejos:
+https://github.com/Netz9/Primer_Parcial.git -clonar el repositorio
+
+
+Ejecutar el composer insatall:
+composer install
+
+
+Configurar el archivo de entorno:
+cp .env.example .env
+
+Crear una base de datos llamada como la que se encuentra en el .env
+
+Ejecutar las migraciones:
+php artisan migrate
+
+correrlo:
+php artisan serve
+
+
+Curls para empleados:
+Create:
+curl --location 'http://127.0.0.1:8000/api/employees' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer your-auth-token' \
+--header 'Cookie: XSRF-TOKEN=eyJpdiI6Im5ZUVBNb1dSYW9PWEowaXBrQUpmTFE9PSIsInZhbHVlIjoiaUhzNjhaSm4vbkxvcUY3V042dXV5aDVYY2luOE5nQWk1YmllQ2k0T1Q2U2Q1dkhtRjFVbXZ3RTh5ajBjS21MYWMrMHEzekZaWStkWHJCUEUzUEMwRE9EZmxqOWU2aHZ2T2Z2Ky9iT0l6QXdZRWVrSmVQRTNqMElOR24rZ0dXTFAiLCJtYWMiOiIxZDljODc4YTFmOTdmYTFkNjMxZGZiODA0OGNlYjQ4NGZlYWMzNTdlMzBiMGZhMzNiNWE4MDczYjJhNjRlYzI1IiwidGFnIjoiIn0%3D; laravel_session=eyJpdiI6ImlTVlN3V1RNb0NSekdmdVZXZ2NBQlE9PSIsInZhbHVlIjoibi8wQUdWd2VmNEhlcEdINGVSL3NyWGpkT3FlYjdKWGpabzBhMkt0dHF3MWQyNDZzWVZvWG4wcisyb0FKQ0dZYUgyV0c1NkR5bEZwbWhyUXdGbEdTTndmeU9SLzd4Q2JYY1BlcUlZYlR1Y1hsRDlkUk41QzRSYlgrbkRGVkw0N3giLCJtYWMiOiI4ZTgxOTU3ODYzMjEwMWZjNjk0NDEwYWM2MWRiYjkwNmRhODgwZGQ3ODAwM2M1OTI4NTdlNjJiMzk0ZWM2YmE3IiwidGFnIjoiIn0%3D' \
+--data-raw '{
+        "first_name": "Jorge",
+        "last_name": "min",
+        "email": "min.jor@example.com",
+        "hire_date": "2024-08-16",
+        "position": "senior",
+        "salary": 75000
+    }'
+
+
+Edit:
+curl --location --request PUT 'http://127.0.0.1:8000/api/employees/1' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer your-auth-token' \
+--header 'Cookie: XSRF-TOKEN=eyJpdiI6Im5ZUVBNb1dSYW9PWEowaXBrQUpmTFE9PSIsInZhbHVlIjoiaUhzNjhaSm4vbkxvcUY3V042dXV5aDVYY2luOE5nQWk1YmllQ2k0T1Q2U2Q1dkhtRjFVbXZ3RTh5ajBjS21MYWMrMHEzekZaWStkWHJCUEUzUEMwRE9EZmxqOWU2aHZ2T2Z2Ky9iT0l6QXdZRWVrSmVQRTNqMElOR24rZ0dXTFAiLCJtYWMiOiIxZDljODc4YTFmOTdmYTFkNjMxZGZiODA0OGNlYjQ4NGZlYWMzNTdlMzBiMGZhMzNiNWE4MDczYjJhNjRlYzI1IiwidGFnIjoiIn0%3D; laravel_session=eyJpdiI6ImlTVlN3V1RNb0NSekdmdVZXZ2NBQlE9PSIsInZhbHVlIjoibi8wQUdWd2VmNEhlcEdINGVSL3NyWGpkT3FlYjdKWGpabzBhMkt0dHF3MWQyNDZzWVZvWG4wcisyb0FKQ0dZYUgyV0c1NkR5bEZwbWhyUXdGbEdTTndmeU9SLzd4Q2JYY1BlcUlZYlR1Y1hsRDlkUk41QzRSYlgrbkRGVkw0N3giLCJtYWMiOiI4ZTgxOTU3ODYzMjEwMWZjNjk0NDEwYWM2MWRiYjkwNmRhODgwZGQ3ODAwM2M1OTI4NTdlNjJiMzk0ZWM2YmE3IiwidGFnIjoiIn0%3D' \
+--data-raw '{
+        "first_name": "Juan",
+        "last_name": "Martinez",
+        "email": "juan.mar@example.com",
+        "hire_date": "2024-08-16",
+        "position": "Junior",
+        "salary": 1000
+    }'
+
+
+
+Get:
+curl --location 'http://127.0.0.1:8000/api/employees' \
+--header 'Cookie: XSRF-TOKEN=eyJpdiI6Im5ZUVBNb1dSYW9PWEowaXBrQUpmTFE9PSIsInZhbHVlIjoiaUhzNjhaSm4vbkxvcUY3V042dXV5aDVYY2luOE5nQWk1YmllQ2k0T1Q2U2Q1dkhtRjFVbXZ3RTh5ajBjS21MYWMrMHEzekZaWStkWHJCUEUzUEMwRE9EZmxqOWU2aHZ2T2Z2Ky9iT0l6QXdZRWVrSmVQRTNqMElOR24rZ0dXTFAiLCJtYWMiOiIxZDljODc4YTFmOTdmYTFkNjMxZGZiODA0OGNlYjQ4NGZlYWMzNTdlMzBiMGZhMzNiNWE4MDczYjJhNjRlYzI1IiwidGFnIjoiIn0%3D; laravel_session=eyJpdiI6ImlTVlN3V1RNb0NSekdmdVZXZ2NBQlE9PSIsInZhbHVlIjoibi8wQUdWd2VmNEhlcEdINGVSL3NyWGpkT3FlYjdKWGpabzBhMkt0dHF3MWQyNDZzWVZvWG4wcisyb0FKQ0dZYUgyV0c1NkR5bEZwbWhyUXdGbEdTTndmeU9SLzd4Q2JYY1BlcUlZYlR1Y1hsRDlkUk41QzRSYlgrbkRGVkw0N3giLCJtYWMiOiI4ZTgxOTU3ODYzMjEwMWZjNjk0NDEwYWM2MWRiYjkwNmRhODgwZGQ3ODAwM2M1OTI4NTdlNjJiMzk0ZWM2YmE3IiwidGFnIjoiIn0%3D'
+
+
+
+Delete:
+curl --location --request DELETE 'http://127.0.0.1:8000/api/employees/2' \
+--header 'Cookie: XSRF-TOKEN=eyJpdiI6Im5ZUVBNb1dSYW9PWEowaXBrQUpmTFE9PSIsInZhbHVlIjoiaUhzNjhaSm4vbkxvcUY3V042dXV5aDVYY2luOE5nQWk1YmllQ2k0T1Q2U2Q1dkhtRjFVbXZ3RTh5ajBjS21MYWMrMHEzekZaWStkWHJCUEUzUEMwRE9EZmxqOWU2aHZ2T2Z2Ky9iT0l6QXdZRWVrSmVQRTNqMElOR24rZ0dXTFAiLCJtYWMiOiIxZDljODc4YTFmOTdmYTFkNjMxZGZiODA0OGNlYjQ4NGZlYWMzNTdlMzBiMGZhMzNiNWE4MDczYjJhNjRlYzI1IiwidGFnIjoiIn0%3D; laravel_session=eyJpdiI6ImlTVlN3V1RNb0NSekdmdVZXZ2NBQlE9PSIsInZhbHVlIjoibi8wQUdWd2VmNEhlcEdINGVSL3NyWGpkT3FlYjdKWGpabzBhMkt0dHF3MWQyNDZzWVZvWG4wcisyb0FKQ0dZYUgyV0c1NkR5bEZwbWhyUXdGbEdTTndmeU9SLzd4Q2JYY1BlcUlZYlR1Y1hsRDlkUk41QzRSYlgrbkRGVkw0N3giLCJtYWMiOiI4ZTgxOTU3ODYzMjEwMWZjNjk0NDEwYWM2MWRiYjkwNmRhODgwZGQ3ODAwM2M1OTI4NTdlNjJiMzk0ZWM2YmE3IiwidGFnIjoiIn0%3D'
+
+
+Curl para proyectos:
+Create:
+curl --location 'http://127.0.0.1:8000/api/projects' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer your-auth-token' \
+--header 'Cookie: XSRF-TOKEN=eyJpdiI6Im5ZUVBNb1dSYW9PWEowaXBrQUpmTFE9PSIsInZhbHVlIjoiaUhzNjhaSm4vbkxvcUY3V042dXV5aDVYY2luOE5nQWk1YmllQ2k0T1Q2U2Q1dkhtRjFVbXZ3RTh5ajBjS21MYWMrMHEzekZaWStkWHJCUEUzUEMwRE9EZmxqOWU2aHZ2T2Z2Ky9iT0l6QXdZRWVrSmVQRTNqMElOR24rZ0dXTFAiLCJtYWMiOiIxZDljODc4YTFmOTdmYTFkNjMxZGZiODA0OGNlYjQ4NGZlYWMzNTdlMzBiMGZhMzNiNWE4MDczYjJhNjRlYzI1IiwidGFnIjoiIn0%3D; laravel_session=eyJpdiI6ImlTVlN3V1RNb0NSekdmdVZXZ2NBQlE9PSIsInZhbHVlIjoibi8wQUdWd2VmNEhlcEdINGVSL3NyWGpkT3FlYjdKWGpabzBhMkt0dHF3MWQyNDZzWVZvWG4wcisyb0FKQ0dZYUgyV0c1NkR5bEZwbWhyUXdGbEdTTndmeU9SLzd4Q2JYY1BlcUlZYlR1Y1hsRDlkUk41QzRSYlgrbkRGVkw0N3giLCJtYWMiOiI4ZTgxOTU3ODYzMjEwMWZjNjk0NDEwYWM2MWRiYjkwNmRhODgwZGQ3ODAwM2M1OTI4NTdlNjJiMzk0ZWM2YmE3IiwidGFnIjoiIn0%3D' \
+--data '{
+        "name": "Proyecto 2",
+        "description": "Nuevo proyecto 2 creado",
+        "start_date": "2024-08-16",
+        "end_date": "2024-12-31",
+        "completion_percentage": 30
+    }'
+
+
+
+Edit:
+curl --location --request PUT 'http://127.0.0.1:8000/api/projects/1' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer your-auth-token' \
+--header 'Cookie: XSRF-TOKEN=eyJpdiI6Im5ZUVBNb1dSYW9PWEowaXBrQUpmTFE9PSIsInZhbHVlIjoiaUhzNjhaSm4vbkxvcUY3V042dXV5aDVYY2luOE5nQWk1YmllQ2k0T1Q2U2Q1dkhtRjFVbXZ3RTh5ajBjS21MYWMrMHEzekZaWStkWHJCUEUzUEMwRE9EZmxqOWU2aHZ2T2Z2Ky9iT0l6QXdZRWVrSmVQRTNqMElOR24rZ0dXTFAiLCJtYWMiOiIxZDljODc4YTFmOTdmYTFkNjMxZGZiODA0OGNlYjQ4NGZlYWMzNTdlMzBiMGZhMzNiNWE4MDczYjJhNjRlYzI1IiwidGFnIjoiIn0%3D; laravel_session=eyJpdiI6ImlTVlN3V1RNb0NSekdmdVZXZ2NBQlE9PSIsInZhbHVlIjoibi8wQUdWd2VmNEhlcEdINGVSL3NyWGpkT3FlYjdKWGpabzBhMkt0dHF3MWQyNDZzWVZvWG4wcisyb0FKQ0dZYUgyV0c1NkR5bEZwbWhyUXdGbEdTTndmeU9SLzd4Q2JYY1BlcUlZYlR1Y1hsRDlkUk41QzRSYlgrbkRGVkw0N3giLCJtYWMiOiI4ZTgxOTU3ODYzMjEwMWZjNjk0NDEwYWM2MWRiYjkwNmRhODgwZGQ3ODAwM2M1OTI4NTdlNjJiMzk0ZWM2YmE3IiwidGFnIjoiIn0%3D' \
+--data '{
+        "name": "Proyecto 1 actualizado",
+        "description": "se acutalizo el proyecto",
+        "start_date": "2024-08-16",
+        "end_date": "2024-12-31",
+        "completion_percentage": 90
+    }'
+
+
+Get:
+curl --location 'http://127.0.0.1:8000/api/projects' \
+--header 'Cookie: XSRF-TOKEN=eyJpdiI6Im5ZUVBNb1dSYW9PWEowaXBrQUpmTFE9PSIsInZhbHVlIjoiaUhzNjhaSm4vbkxvcUY3V042dXV5aDVYY2luOE5nQWk1YmllQ2k0T1Q2U2Q1dkhtRjFVbXZ3RTh5ajBjS21MYWMrMHEzekZaWStkWHJCUEUzUEMwRE9EZmxqOWU2aHZ2T2Z2Ky9iT0l6QXdZRWVrSmVQRTNqMElOR24rZ0dXTFAiLCJtYWMiOiIxZDljODc4YTFmOTdmYTFkNjMxZGZiODA0OGNlYjQ4NGZlYWMzNTdlMzBiMGZhMzNiNWE4MDczYjJhNjRlYzI1IiwidGFnIjoiIn0%3D; laravel_session=eyJpdiI6ImlTVlN3V1RNb0NSekdmdVZXZ2NBQlE9PSIsInZhbHVlIjoibi8wQUdWd2VmNEhlcEdINGVSL3NyWGpkT3FlYjdKWGpabzBhMkt0dHF3MWQyNDZzWVZvWG4wcisyb0FKQ0dZYUgyV0c1NkR5bEZwbWhyUXdGbEdTTndmeU9SLzd4Q2JYY1BlcUlZYlR1Y1hsRDlkUk41QzRSYlgrbkRGVkw0N3giLCJtYWMiOiI4ZTgxOTU3ODYzMjEwMWZjNjk0NDEwYWM2MWRiYjkwNmRhODgwZGQ3ODAwM2M1OTI4NTdlNjJiMzk0ZWM2YmE3IiwidGFnIjoiIn0%3D'
+
+
+Asignacion de empleados a proyectos:
+curl --location 'http://127.0.0.1:8000/api/projects/assign' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer your-auth-token' \
+--header 'Cookie: XSRF-TOKEN=eyJpdiI6Im5ZUVBNb1dSYW9PWEowaXBrQUpmTFE9PSIsInZhbHVlIjoiaUhzNjhaSm4vbkxvcUY3V042dXV5aDVYY2luOE5nQWk1YmllQ2k0T1Q2U2Q1dkhtRjFVbXZ3RTh5ajBjS21MYWMrMHEzekZaWStkWHJCUEUzUEMwRE9EZmxqOWU2aHZ2T2Z2Ky9iT0l6QXdZRWVrSmVQRTNqMElOR24rZ0dXTFAiLCJtYWMiOiIxZDljODc4YTFmOTdmYTFkNjMxZGZiODA0OGNlYjQ4NGZlYWMzNTdlMzBiMGZhMzNiNWE4MDczYjJhNjRlYzI1IiwidGFnIjoiIn0%3D; laravel_session=eyJpdiI6ImlTVlN3V1RNb0NSekdmdVZXZ2NBQlE9PSIsInZhbHVlIjoibi8wQUdWd2VmNEhlcEdINGVSL3NyWGpkT3FlYjdKWGpabzBhMkt0dHF3MWQyNDZzWVZvWG4wcisyb0FKQ0dZYUgyV0c1NkR5bEZwbWhyUXdGbEdTTndmeU9SLzd4Q2JYY1BlcUlZYlR1Y1hsRDlkUk41QzRSYlgrbkRGVkw0N3giLCJtYWMiOiI4ZTgxOTU3ODYzMjEwMWZjNjk0NDEwYWM2MWRiYjkwNmRhODgwZGQ3ODAwM2M1OTI4NTdlNjJiMzk0ZWM2YmE3IiwidGFnIjoiIn0%3D' \
+--data '{
+        "employee_id": 5,
+        "project_id": 2,
+        "assigned_date": "2024-08-16"
+    }'
