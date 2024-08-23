@@ -38,3 +38,12 @@ Route::put('/projects/{project}', 'App\Http\Controllers\EmployeeProjectControlle
 Route::post('/projects/assign', 'App\Http\Controllers\ProjectController@assignEmployeeToProject')->name('projects.assignEmployee');// Ruta para asignar un empleado a un proyecto
 
 
+// Ruta para obtener proyectos que están a menos de una semana de cumplir con su fecha de entrega
+Route::get('/alerts/upcoming', [EmployeeProjectController::class, 'alerts']);
+
+// Rutas para el CRUD de alertas
+Route::post('/alerts', [EmployeeProjectController::class, 'storeAlert']);
+Route::get('/alerts', [EmployeeProjectController::class, 'indexAlerts']);
+Route::get('/alerts/{alert}', [EmployeeProjectController::class, 'showAlert']);
+Route::put('/alerts/{alert}', [EmployeeProjectController::class, 'updateAlert']);
+Route::delete('/alerts/{alert}', [EmployeeProjectController::class, 'destroyAlert']);
